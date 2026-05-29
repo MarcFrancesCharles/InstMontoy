@@ -7,17 +7,17 @@ gsap.registerPlugin(ScrollTrigger)
 const projects = [
   {
     title: 'Instal·lació Elèctrica Completa',
-    category: 'Habitatge unifamiliar, València',
+    category: 'Habitatge unifamiliar, Alcarràs',
     image: '/images/project-1.jpg',
   },
   {
     title: 'Climatització Hotel Boutique',
-    category: 'Sistema VRF, Alacant',
+    category: 'Sistema VRF, Alcarràs',
     image: '/images/project-2.jpg',
   },
   {
     title: 'Placa Solar 10kW',
-    category: 'Autoconsum industrial, Castelló',
+    category: 'Autoconsum industrial, Lleida',
     image: '/images/project-3.jpg',
   },
   {

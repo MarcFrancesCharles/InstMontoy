@@ -47,8 +47,8 @@ export default function Footer() {
               INSTAL·LACIONS MONTOY
             </p>
             <p className="font-body text-[14px] font-light text-[#F5F3EF] opacity-60 leading-[1.7]">
-              C/ Colón 23<br />
-              46004 València
+              Alcarràs<br />
+              Lleida
             </p>
           </div>
 

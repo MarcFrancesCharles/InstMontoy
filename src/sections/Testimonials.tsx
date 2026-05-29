@@ -8,7 +8,7 @@ const testimonials = [
   {
     quote: 'Professionals, puntuals i molt nets. La instal·lació elèctrica de casa nostra va quedar perfecta.',
     name: 'Maria G.',
-    role: 'València',
+    role: 'Granja',
   },
   {
     quote: 'Montoy va gestionar tota la instal·lació de plaques solars. Estalviem un 60% en la factura de la llum.',

@@ -5,8 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { num: '12+', label: 'Anys d\'experiència' },
-  { num: '500+', label: 'Projectes completats' },
+  { num: '5+', label: 'Anys d\'experiència' },
+  { num: '200+', label: 'Projectes completats' },
   { num: '100%', label: 'Clients satisfets' },
 ]
 
@@ -61,10 +61,10 @@ export default function About() {
           <div className="lg:w-[45%] flex flex-col justify-center">
             <p className="about-text-item section-label mb-6 opacity-0">Sobre Nosaltres</p>
             <h2 className="about-text-item font-display text-[32px] md:text-[48px] font-normal leading-[1.1] tracking-[-1.5px] text-[#1A1A1A] mb-6 opacity-0">
-              Més d'una dècada d'experiència
+              Treballant ràpid i amb qualitat des de 2018
             </h2>
             <p className="about-text-item font-body text-[16px] md:text-[18px] font-light text-[#8C8279] leading-[1.65] mb-10 opacity-0">
-              Som una empresa d'instal·lacions amb seu a València, especialitzada en electricitat, climatització, energia solar i fontaneria. Treballem amb particulars, empreses i comunitats de veïns, oferint solucions integrals amb garantia de qualitat.
+              Som una empresa d'instal·lacions amb seu a Alcarràs, especialitzada en electricitat, climatització, energia solar i fontaneria. Treballem amb particulars, empreses i comunitats de veïns, oferint solucions integrals amb garantia de qualitat.
             </p>
             <p className="about-text-item font-body text-[16px] font-light text-[#8C8279] leading-[1.65] mb-12 opacity-0">
               Cada projecte és una oportunitat per demostrar el nostre compromís amb l'excel·lència tècnica i la satisfacció del client.

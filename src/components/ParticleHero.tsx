@@ -182,7 +182,7 @@ export default function ParticleHero() {
       canvas,
       antialias: true,
       preserveDrawingBuffer: true,
-      alpha: true,
+      alpha: true, // Necessari perquè es vegi el text de fons
     })
     renderer.setClearColor(0x000000, 0)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
@@ -373,12 +373,39 @@ export default function ParticleHero() {
       className="relative w-full h-screen overflow-hidden"
       style={{ background: '#F5F3EF' }}
     >
+      {/* 1. TEXTOS ANIMATS PEL FONS (Sota les partícules) */}
+      <div className="absolute inset-0 z-0 flex flex-col justify-center overflow-hidden pointer-events-none select-none">
+        
+        {/* Línia superior */}
+        <div className="animate-marquee flex whitespace-nowrap mb-4 md:mb-8">
+          <span className="text-[80px] md:text-[140px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+            • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+          </span>
+          <span className="text-[80px] md:text-[140px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+            • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+          </span>
+        </div>
+
+        {/* Línia inferior amb efecte de contorn */}
+        <div className="animate-marquee-reverse flex whitespace-nowrap">
+          <span className="text-[80px] md:text-[140px] font-black uppercase tracking-tight mx-8 text-stroke">
+            ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+          </span>
+          <span className="text-[80px] md:text-[140px] font-black uppercase tracking-tight mx-8 text-stroke">
+            ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+          </span>
+        </div>
+      </div>
+
+      {/* 2. CANVAS DE LES PARTÍCULES (A sobre dels textos, sota el text principal) */}
       <canvas
         ref={canvasRef}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}
       />
+
+      {/* 3. EL TEU TEXT ORIGINAL (Intacte, a la posició original) */}
       <div
-        className="absolute z-10"
+        className="absolute z-20"
         style={{ bottom: '15vh', left: '48px', maxWidth: '600px' }}
       >
         <h1
@@ -391,7 +418,7 @@ export default function ParticleHero() {
           className="font-body text-[16px] font-light leading-[1.65] text-[#8C8279] max-w-[400px] mb-8 hero-subtitle"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Instal·lacions elèctriques, climatització, fontaneria i energia solar a la Comunitat Valenciana.
+          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Lleida.
         </p>
         <a
           href="#serveis"
@@ -405,6 +432,29 @@ export default function ParticleHero() {
           Veure serveis
         </a>
       </div>
+
+      {/* ESTILS CSS PER LES ANIMACIONS DELS TEXTOS */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+        .animate-marquee-reverse {
+          animation: marquee-reverse 50s linear infinite;
+        }
+        .text-stroke {
+          /* Color adaptat al fons clar per fer només el contorn de la lletra */
+          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.05); 
+          color: transparent;
+        }
+      `}</style>
     </div>
   )
 }
