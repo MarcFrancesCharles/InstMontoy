@@ -421,7 +421,7 @@ export default function ParticleHero() {
           className="font-body text-[16px] font-light leading-[1.65] text-[#8C8279] max-w-[400px] mb-8 hero-subtitle"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Ll.
+          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Lleida.
         </p>
         <a
           href="#serveis"
