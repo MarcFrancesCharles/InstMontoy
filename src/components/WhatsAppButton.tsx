@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
   return (
     <a
       ref={buttonRef}
-      href="https://wa.me/34612345678?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
+      href="https://wa.me/34622503072?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar per WhatsApp"
