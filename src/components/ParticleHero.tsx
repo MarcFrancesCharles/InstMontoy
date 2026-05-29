@@ -373,29 +373,32 @@ export default function ParticleHero() {
       className="relative w-full h-screen overflow-hidden"
       style={{ background: '#F5F3EF' }}
     >
-      {/* 1. TEXTOS ANIMATS PEL FONS (Sota les partícules) */}
-      <div className="absolute inset-0 z-0 flex flex-col justify-center overflow-hidden pointer-events-none select-none">
-        
-        {/* Línia superior (Text normal 10% opacitat, mides i marges ajustats) */}
-        <div className="animate-marquee flex whitespace-nowrap mb-4 md:mb-8">
-          <span className="text-[50px] md:text-[110px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-4 md:mx-8">
-            • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
-          </span>
-          <span className="text-[50px] md:text-[110px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-4 md:mx-8">
-            • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
-          </span>
-        </div>
+      
+      {/* CANVI 1: 'justify-center' per 'justify-start pt-[15vh]' per pujar-ho a dalt de tot */}
+        <div className="absolute inset-0 z-0 flex flex-col justify-start pt-[15vh] overflow-hidden pointer-events-none select-none">
+          
+          {/* Línia superior */}
+          <div className="animate-marquee flex whitespace-nowrap mb-4 md:mb-8">
+            {/* CANVI 2: text-[80px] a text-[40px] i md:text-[140px] a md:text-[70px] */}
+            <span className="text-[40px] md:text-[70px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+              • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+            </span>
+            <span className="text-[40px] md:text-[70px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+              • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+            </span>
+          </div>
 
-        {/* Línia inferior (Efecte de contorn 10% opacitat en CSS, mides i marges ajustats) */}
-        <div className="animate-marquee-reverse flex whitespace-nowrap">
-          <span className="text-[50px] md:text-[110px] font-black uppercase tracking-tight mx-4 md:mx-8 text-stroke">
-            ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
-          </span>
-          <span className="text-[50px] md:text-[110px] font-black uppercase tracking-tight mx-4 md:mx-8 text-stroke">
-            ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
-          </span>
+          {/* Línia inferior amb efecte de contorn */}
+          <div className="animate-marquee-reverse flex whitespace-nowrap">
+            {/* CANVI 2 (continuació): mateixa reducció de mides */}
+            <span className="text-[40px] md:text-[70px] font-black uppercase tracking-tight mx-8 text-stroke">
+              ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+            </span>
+            <span className="text-[40px] md:text-[70px] font-black uppercase tracking-tight mx-8 text-stroke">
+              ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+            </span>
+          </div>
         </div>
-      </div>
 
       {/* 2. CANVAS DE LES PARTÍCULES (A sobre dels textos, sota el text principal) */}
       <canvas
@@ -418,7 +421,7 @@ export default function ParticleHero() {
           className="font-body text-[16px] font-light leading-[1.65] text-[#8C8279] max-w-[400px] mb-8 hero-subtitle"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Lleida.
+          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Ll.
         </p>
         <a
           href="#serveis"
@@ -444,14 +447,14 @@ export default function ParticleHero() {
           100% { transform: translateX(0%); }
         }
         .animate-marquee {
-          animation: marquee 25s linear infinite;
+          animation: marquee 40s linear infinite;
         }
         .animate-marquee-reverse {
-          animation: marquee-reverse 30s linear infinite;
+          animation: marquee-reverse 50s linear infinite;
         }
         .text-stroke {
-          /* Color adaptat al fons clar per fer només el contorn de la lletra al 10% d'opacitat */
-          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.1); 
+          /* Color adaptat al fons clar per fer només el contorn de la lletra */
+          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.05); 
           color: transparent;
         }
       `}</style>
