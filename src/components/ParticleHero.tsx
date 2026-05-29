@@ -376,22 +376,22 @@ export default function ParticleHero() {
       {/* 1. TEXTOS ANIMATS PEL FONS (Sota les partícules) */}
       <div className="absolute inset-0 z-0 flex flex-col justify-center overflow-hidden pointer-events-none select-none">
         
-        {/* Línia superior */}
+        {/* Línia superior (Text normal 10% opacitat, mides i marges ajustats) */}
         <div className="animate-marquee flex whitespace-nowrap mb-4 md:mb-8">
-          <span className="text-[80px] md:text-[140px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+          <span className="text-[50px] md:text-[110px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-4 md:mx-8">
             • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
           </span>
-          <span className="text-[80px] md:text-[140px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
+          <span className="text-[50px] md:text-[110px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-4 md:mx-8">
             • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
           </span>
         </div>
 
-        {/* Línia inferior amb efecte de contorn */}
+        {/* Línia inferior (Efecte de contorn 10% opacitat en CSS, mides i marges ajustats) */}
         <div className="animate-marquee-reverse flex whitespace-nowrap">
-          <span className="text-[80px] md:text-[140px] font-black uppercase tracking-tight mx-8 text-stroke">
+          <span className="text-[50px] md:text-[110px] font-black uppercase tracking-tight mx-4 md:mx-8 text-stroke">
             ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
           </span>
-          <span className="text-[80px] md:text-[140px] font-black uppercase tracking-tight mx-8 text-stroke">
+          <span className="text-[50px] md:text-[110px] font-black uppercase tracking-tight mx-4 md:mx-8 text-stroke">
             ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
           </span>
         </div>
@@ -444,14 +444,14 @@ export default function ParticleHero() {
           100% { transform: translateX(0%); }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 25s linear infinite;
         }
         .animate-marquee-reverse {
-          animation: marquee-reverse 50s linear infinite;
+          animation: marquee-reverse 30s linear infinite;
         }
         .text-stroke {
-          /* Color adaptat al fons clar per fer només el contorn de la lletra */
-          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.05); 
+          /* Color adaptat al fons clar per fer només el contorn de la lletra al 10% d'opacitat */
+          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.1); 
           color: transparent;
         }
       `}</style>
