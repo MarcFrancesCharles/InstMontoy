@@ -5,12 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const clientNames = [
-  'Constructora Mediterráneo',
+  'Constructora Mediterrània',
   'Hotel Boutique Plaza',
-  'Industrias Valencianas',
-  'Promociones Litoral',
-  'Comunidad de Vecinos Marina',
-  'Restaurante El Racó',
+  'Indústries Valencianes',
+  'Promocions Litoral',
+  'Comunitat de Veïns Marina',
+  'Restaurant El Racó',
 ]
 
 export default function TrustedBy() {
@@ -39,7 +39,7 @@ export default function TrustedBy() {
   return (
     <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-20 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <p className="section-label text-center mb-12">Confían en nosotros</p>
+        <p className="section-label text-center mb-12">Confien en nosaltres</p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
           {clientNames.map((name, i) => (
             <div

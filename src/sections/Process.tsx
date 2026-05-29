@@ -7,18 +7,18 @@ gsap.registerPlugin(ScrollTrigger)
 const steps = [
   {
     num: '01',
-    title: 'Diagnóstico',
-    desc: 'Analizamos tus necesidades y evaluamos el espacio para proponer la mejor solución técnica.',
+    title: 'Diagnòstic',
+    desc: 'Analitzem les teves necessitats i avaluem l\'espai per proposar la millor solució tècnica.',
   },
   {
     num: '02',
-    title: 'Presupuesto',
-    desc: 'Elaboramos un presupuesto detallado y transparente, sin sorpresas ni costes ocultos.',
+    title: 'Pressupost',
+    desc: 'Elaborem un pressupost detallat i transparent, sense sorpreses ni costos ocults.',
   },
   {
     num: '03',
-    title: 'Ejecución',
-    desc: 'Realizamos la instalación con profesionales cualificados, cumpliendo plazos y normativa vigente.',
+    title: 'Execució',
+    desc: 'Realitzem la instal·lació amb professionals qualificats, complint terminis i normativa vigent.',
   },
 ]
 
@@ -50,15 +50,13 @@ export default function Process() {
     <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-24 md:py-40">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          {/* Left */}
           <div className="lg:w-[45%]">
-            <p className="section-label mb-6">Nuestro Proceso</p>
+            <p className="section-label mb-6">El Nostre Procés</p>
             <h2 className="font-display text-[32px] md:text-[56px] font-normal leading-[1.1] tracking-[-1.5px] text-[#1A1A1A]">
-              Así trabajamos
+              Així treballem
             </h2>
           </div>
 
-          {/* Right - Steps */}
           <div className="lg:w-[55%] flex flex-col gap-12 md:gap-16">
             {steps.map((step, i) => (
               <div key={i} className="process-step flex gap-6 md:gap-8 opacity-0">

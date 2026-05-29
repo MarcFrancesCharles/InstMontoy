@@ -5,10 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const navLinks = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Sobre Nosotros', href: '#sobre-nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Serveis', href: '#serveis' },
+  { label: 'Projectes', href: '#projectes' },
+  { label: 'Sobre Nosaltres', href: '#sobre-nosaltres' },
+  { label: 'Contacte', href: '#contacte' },
 ]
 
 export default function Footer() {
@@ -21,13 +21,8 @@ export default function Footer() {
     gsap.fromTo(footer,
       { opacity: 0 },
       {
-        opacity: 1,
-        duration: 0.6,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: footer,
-          start: 'top 90%',
-        },
+        opacity: 1, duration: 0.6, ease: 'power3.out',
+        scrollTrigger: { trigger: footer, start: 'top 90%' },
       }
     )
   }, [])
@@ -46,22 +41,19 @@ export default function Footer() {
       className="w-full bg-[#0F0F0F] pt-16 md:pt-20 pb-8 opacity-0"
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        {/* Main footer grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
-          {/* Brand + Address */}
           <div>
             <p className="nav-link text-[#F5F3EF] mb-4">
               INSTAL·LACIONS MONTOY
             </p>
             <p className="font-body text-[14px] font-light text-[#F5F3EF] opacity-60 leading-[1.7]">
               C/ Colón 23<br />
-              46004 Valencia
+              46004 València
             </p>
           </div>
 
-          {/* Navigation */}
           <div>
-            <p className="section-label mb-4" style={{ color: '#8C8279' }}>Navegación</p>
+            <p className="section-label mb-4" style={{ color: '#8C8279' }}>Navegació</p>
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
@@ -76,9 +68,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact */}
           <div>
-            <p className="section-label mb-4" style={{ color: '#8C8279' }}>Contacto</p>
+            <p className="section-label mb-4" style={{ color: '#8C8279' }}>Contacte</p>
             <div className="flex flex-col gap-2">
               <a
                 href="mailto:info@montoy.es"
@@ -96,18 +87,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-[rgba(245,243,239,0.1)] pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40">
-            2024 Instal·lacions Montoy. Todos los derechos reservados.
+            2024 Instal·lacions Montoy. Tots els drets reservats.
           </p>
           <div className="flex gap-4">
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40 hover:opacity-70 cursor-pointer transition-opacity">
-              Aviso Legal
+              Avís Legal
             </span>
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40">·</span>
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40 hover:opacity-70 cursor-pointer transition-opacity">
-              Política de Privacidad
+              Política de Privacitat
             </span>
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40">·</span>
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40 hover:opacity-70 cursor-pointer transition-opacity">

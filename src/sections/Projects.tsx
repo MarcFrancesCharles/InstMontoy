@@ -6,23 +6,23 @@ gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
-    title: 'Instalación Eléctrica Completa',
-    category: 'Vivienda unifamiliar, Valencia',
+    title: 'Instal·lació Elèctrica Completa',
+    category: 'Habitatge unifamiliar, València',
     image: '/images/project-1.jpg',
   },
   {
-    title: 'Climatización Hotel Boutique',
-    category: 'Sistema VRF, Alicante',
+    title: 'Climatització Hotel Boutique',
+    category: 'Sistema VRF, Alacant',
     image: '/images/project-2.jpg',
   },
   {
     title: 'Placa Solar 10kW',
-    category: 'Autoconsumo industrial, Castellón',
+    category: 'Autoconsum industrial, Castelló',
     image: '/images/project-3.jpg',
   },
   {
-    title: 'Reforma Integral Oficinas',
-    category: 'Electricidad + climatización + domótica',
+    title: 'Reforma Integral Oficines',
+    category: 'Electricitat + climatització + domòtica',
     image: '/images/project-4.jpg',
   },
 ]
@@ -54,15 +54,15 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      id="proyectos"
+      id="projectes"
       className="w-full bg-[#0F0F0F] py-24 md:py-40"
     >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <p className="section-label text-center mb-6" style={{ color: '#8C8279' }}>
-          Proyectos Destacados
+          Projectes Destacats
         </p>
         <h2 className="font-display text-[32px] md:text-[56px] font-normal leading-[1.1] tracking-[-1.5px] text-[#F5F3EF] text-center mb-16 md:mb-20">
-          Trabajos recientes
+          Treballs recents
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -78,7 +78,6 @@ export default function Projects() {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              {/* Hover overlay */}
               <div className="absolute inset-0 bg-[rgba(15,15,15,0.7)] opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-6 md:p-8">
                 <h3 className="font-body text-[18px] md:text-[20px] font-normal text-[#F5F3EF] translate-y-[10px] group-hover:translate-y-0 transition-transform duration-400">
                   {project.title}

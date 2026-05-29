@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
 const navLinks = [
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Sobre Nosotros', href: '#sobre-nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Serveis', href: '#serveis' },
+  { label: 'Projectes', href: '#projectes' },
+  { label: 'Sobre Nosaltres', href: '#sobre-nosaltres' },
+  { label: 'Contacte', href: '#contacte' },
 ]
 
 export default function Navigation() {
@@ -49,7 +49,6 @@ export default function Navigation() {
       style={{ opacity: 0 }}
     >
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Brand */}
         <a
           href="#"
           onClick={(e) => {
@@ -61,7 +60,6 @@ export default function Navigation() {
           INSTAL·LACIONS MONTOY
         </a>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -75,11 +73,10 @@ export default function Navigation() {
           ))}
         </div>
 
-        {/* Mobile Hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
+          aria-label="Menú"
         >
           <span className={`block w-6 h-px bg-[#1A1A1A] transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[3.5px]' : ''}`} />
           <span className={`block w-6 h-px bg-[#1A1A1A] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -87,7 +84,6 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`absolute top-[72px] left-0 right-0 bg-[rgba(245,243,239,0.98)] backdrop-blur-[12px] border-b border-[rgba(26,26,26,0.06)] md:hidden transition-all duration-500 overflow-hidden ${
           menuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'

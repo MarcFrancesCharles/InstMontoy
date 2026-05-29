@@ -5,7 +5,6 @@ const TEXTURE_WIDTH = 100
 const TEXTURE_HEIGHT = 100
 const AMOUNT = TEXTURE_WIDTH * TEXTURE_HEIGHT
 
-// Vertex shader (shared by both passes)
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -14,7 +13,6 @@ const vertexShader = `
   }
 `
 
-// Position update fragment shader
 const posFragmentShader = `
   precision highp float;
   uniform sampler2D textureDefaultPosition;
@@ -84,7 +82,6 @@ const posFragmentShader = `
     float mouseSize = uConfig.z;
     float dieSpeed = uConfig.w;
 
-    // Mouse interaction
     vec2 mousePosition = uMouse.xy;
     vec2 mouseDirection = uMouseDirection;
     float mouseDistance = length(position.xy - mousePosition);
@@ -97,7 +94,6 @@ const posFragmentShader = `
     vec2 mouseForce = mouseDirection * mouseSpeed * mouseStrength * isMouseActive;
     acc.xy += mouseForce;
 
-    // Swirl force
     vec2 configA = vec2(0.1, 0.2);
     vec2 cursorPos = (mousePosition) * 1.0 - 0.1;
     vec3 offset = position - vec3(cursorPos, 0.0);
@@ -119,17 +115,14 @@ const posFragmentShader = `
       acc += swirl;
     }
 
-    // Spring back to default position
     vec3 target = def.xyz;
     vec3 toTarget = (target - position) * speed;
     acc += toTarget;
 
-    // Integrate
     vec3 vel = positionInfo.xyz - positionInfo.xyz;
     vel += acc;
     position += vel;
 
-    // Decay
     if (length(acc) > 0.0000001) {
       positionInfo.w *= dieSpeed;
     } else {
@@ -140,7 +133,6 @@ const posFragmentShader = `
   }
 `
 
-// Particle vertex shader
 const particleVertexShader = `
   uniform sampler2D texturePosition;
   uniform float uSize;
@@ -157,21 +149,12 @@ const particleVertexShader = `
   }
 `
 
-// Particle fragment shader
 const particleFragmentShader = `
   precision highp float;
   uniform vec4 resolution;
   uniform float uSize;
   varying vec4 vColor;
   varying vec2 vUv;
-
-  vec3 packColor(vec3 color) {
-    return vec3(1.0 / 255.0, 256.0 / 255.0, 256.0 * 256.0 / 255.0) * color;
-  }
-
-  float unpackColor(vec3 color) {
-    return dot(color, vec3(255.0, 1.0 / 256.0, 1.0 / 256.0 / 256.0));
-  }
 
   void main() {
     vec2 coord = gl_PointCoord - vec2(0.5);
@@ -195,7 +178,6 @@ export default function ParticleHero() {
     const canvas = canvasRef.current
     if (!container || !canvas) return
 
-    // Renderer
     const renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: true,
@@ -206,7 +188,6 @@ export default function ParticleHero() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(container.offsetWidth, container.offsetHeight)
 
-    // Get text texture
     function getTextCoordinates(): THREE.DataTexture {
       const textCanvas = document.createElement('canvas')
       textCanvas.width = 256
@@ -223,10 +204,10 @@ export default function ParticleHero() {
       const data = new Float32Array(256 * 256 * 4)
       for (let i = 0; i < 256 * 256; i++) {
         const brightness = imageData.data[i * 4] / 255
-        data[i * 4] = (Math.random() * 0.5 + 0.25) // x position spread
-        data[i * 4 + 1] = (Math.random() * 0.5 + 0.25) // y position spread
-        data[i * 4 + 2] = brightness * 0.5 // z position
-        data[i * 4 + 3] = brightness // density/w
+        data[i * 4] = (Math.random() * 0.5 + 0.25)
+        data[i * 4 + 1] = (Math.random() * 0.5 + 0.25)
+        data[i * 4 + 2] = brightness * 0.5
+        data[i * 4 + 3] = brightness
       }
       const tex = new THREE.DataTexture(data, 256, 256, THREE.RGBAFormat, THREE.FloatType)
       tex.needsUpdate = true
@@ -235,12 +216,10 @@ export default function ParticleHero() {
       return tex
     }
 
-    // Initialize particle system
     const scene = new THREE.Scene()
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1)
     const geometry = new THREE.PlaneGeometry(2, 2)
 
-    // Default position texture (grid layout)
     const positions = new Float32Array(AMOUNT * 4)
     for (let i = 0; i < AMOUNT; i++) {
       positions[i * 4] = (i % TEXTURE_WIDTH) / TEXTURE_WIDTH
@@ -255,7 +234,6 @@ export default function ParticleHero() {
 
     const textTexture = getTextCoordinates()
 
-    // Position FBO
     const fbo = new THREE.WebGLRenderTarget(TEXTURE_WIDTH, TEXTURE_HEIGHT, {
       type: THREE.FloatType,
       minFilter: THREE.NearestFilter,
@@ -263,7 +241,6 @@ export default function ParticleHero() {
       format: THREE.RGBAFormat,
     })
 
-    // Position material
     const positionMaterial = new THREE.ShaderMaterial({
       vertexShader,
       fragmentShader: posFragmentShader,
@@ -281,7 +258,6 @@ export default function ParticleHero() {
     const positionMesh = new THREE.Mesh(geometry, positionMaterial)
     scene.add(positionMesh)
 
-    // Display scene
     const camera2 = new THREE.PerspectiveCamera(50, container.offsetWidth / container.offsetHeight, 0.1, 20)
     camera2.position.z = 6
 
@@ -310,7 +286,6 @@ export default function ParticleHero() {
     const particles = new THREE.Points(particleGeometry, pointsMaterial)
     sceneParticles.add(particles)
 
-    // Mouse tracking
     let mouseX = 0
     let mouseY = 0
 
@@ -350,7 +325,6 @@ export default function ParticleHero() {
     canvas.addEventListener('mousemove', handleMouseMove)
     canvas.addEventListener('mouseleave', handleMouseLeave)
 
-    // Animation loop
     let animationId: number
     const loop = () => {
       positionMaterial.uniforms.uTime.value += 0.01
@@ -366,19 +340,13 @@ export default function ParticleHero() {
 
     loop()
 
-    // Resize
     const handleResize = () => {
       const w = container.offsetWidth
       const h = container.offsetHeight
       renderer.setSize(w, h)
       camera2.aspect = w / h
       camera2.updateProjectionMatrix()
-      positionMaterial.uniforms.resolution.value.set(
-        TEXTURE_WIDTH,
-        TEXTURE_HEIGHT,
-        w / h,
-        h / w
-      )
+      positionMaterial.uniforms.resolution.value.set(TEXTURE_WIDTH, TEXTURE_HEIGHT, w / h, h / w)
       pointsMaterial.uniforms.resolution.value.set(w, h)
     }
     window.addEventListener('resize', handleResize)
@@ -407,16 +375,8 @@ export default function ParticleHero() {
     >
       <canvas
         ref={canvasRef}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-        }}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
       />
-      {/* Hero Text */}
       <div
         className="absolute z-10"
         style={{ bottom: '15vh', left: '48px', maxWidth: '600px' }}
@@ -425,24 +385,24 @@ export default function ParticleHero() {
           className="font-display text-[#1A1A1A] text-[48px] md:text-[80px] font-normal leading-[1.0] tracking-[-2px] mb-6 hero-text"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Soluciones integrales<br />para tu espacio
+          Solucions integrals<br />per al teu espai
         </h1>
         <p
           className="font-body text-[16px] font-light leading-[1.65] text-[#8C8279] max-w-[400px] mb-8 hero-subtitle"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Instalaciones eléctricas, climatización, fontanería y energía solar en la Comunidad Valenciana.
+          Instal·lacions elèctriques, climatització, fontaneria i energia solar a la Comunitat Valenciana.
         </p>
         <a
-          href="#servicios"
+          href="#serveis"
           onClick={(e) => {
             e.preventDefault()
-            document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' })
+            document.querySelector('#serveis')?.scrollIntoView({ behavior: 'smooth' })
           }}
           className="inline-block bg-[#C41E3A] text-[#F5F3EF] px-8 py-[14px] text-[12px] font-normal uppercase tracking-[1.5px] hover:bg-[#A01830] transition-colors duration-300 hero-cta"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Ver servicios
+          Veure serveis
         </a>
       </div>
     </div>

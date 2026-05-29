@@ -6,17 +6,17 @@ gsap.registerPlugin(ScrollTrigger)
 
 const testimonials = [
   {
-    quote: 'Profesionales, puntuales y muy limpios. La instalación eléctrica de nuestra casa quedó perfecta.',
-    name: 'María G.',
-    role: 'Valencia',
+    quote: 'Professionals, puntuals i molt nets. La instal·lació elèctrica de casa nostra va quedar perfecta.',
+    name: 'Maria G.',
+    role: 'València',
   },
   {
-    quote: 'Montoy gestionó toda la instalación de placas solares. Ahorramos un 60% en la factura de la luz.',
-    name: 'Carlos R.',
+    quote: 'Montoy va gestionar tota la instal·lació de plaques solars. Estalviem un 60% en la factura de la llum.',
+    name: 'Carles R.',
     role: 'Empresa constructora',
   },
   {
-    quote: 'Trabajan con un nivel de detalle impresionante. Los recomiendo sin dudarlo.',
+    quote: 'Treballen amb un nivell de detall impressionant. Els recomano sense dubtar-ho.',
     name: 'Ana L.',
     role: 'Arquitecta',
   },
@@ -49,15 +49,14 @@ export default function Testimonials() {
   return (
     <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-24 md:py-40">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-        <p className="section-label text-center mb-6">Testimonios</p>
+        <p className="section-label text-center mb-6">Testimonis</p>
         <h2 className="font-display text-[32px] md:text-[56px] font-normal leading-[1.1] tracking-[-1.5px] text-[#1A1A1A] text-center mb-16 md:mb-20">
-          Lo que dicen nuestros clientes
+          Què diuen els nostres clients
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {testimonials.map((t, i) => (
             <div key={i} className="testimonial-card relative opacity-0">
-              {/* Large quotation mark */}
               <span
                 className="font-display text-[100px] md:text-[120px] font-normal leading-none text-[#C41E3A] absolute -top-8 -left-2 select-none pointer-events-none"
                 style={{ opacity: 0.15 }}
