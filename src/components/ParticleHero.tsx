@@ -519,9 +519,7 @@ export default function ParticleHero() {
           50% { transform: translateX(-50%) scaleX(0.78); opacity: 0.22; }
         }
         @media (max-width: 767px) {
-          .hero-m-wrap { top: 37%; right: calc(50vw - 82px); }
-          .hero-m-circle { width: 164px; }
-          .hero-m { font-size: 98px; }
+          .hero-m-wrap { display: none; }
         }
         @media (prefers-reduced-motion: reduce) {
           .hero-m-wrap, .hero-m-circle, .hero-m-shadow { animation-duration: 0.01s; animation-iteration-count: 1; }
