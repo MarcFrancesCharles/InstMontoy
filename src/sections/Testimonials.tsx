@@ -11,7 +11,7 @@ const testimonials = [
     role: 'Granja',
   },
   {
-    quote: 'Montoy va gestionar tota la instal·lació de plaques solars. Estalviem un 60% en la factura de la llum.',
+    quote: 'Montoy ens va renovar tota la climatització de la nau. Rapidesa, seriositat i un acabat impecable.',
     name: 'Carles R.',
     role: 'Empresa constructora',
   },

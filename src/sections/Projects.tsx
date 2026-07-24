@@ -16,13 +16,8 @@ const projects = [
     image: '/images/project-2.jpg',
   },
   {
-    title: 'Placa Solar 10kW',
-    category: 'Autoconsum industrial, Lleida',
-    image: '/images/project-3.jpg',
-  },
-  {
     title: 'Reforma Integral Oficines',
-    category: 'Electricitat + climatització + domòtica',
+    category: 'Electricitat + climatització, Lleida',
     image: '/images/project-4.jpg',
   },
 ]
@@ -65,7 +60,7 @@ export default function Projects() {
           Treballs recents
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, i) => (
             <div
               key={i}

@@ -381,10 +381,10 @@ export default function ParticleHero() {
           <div className="animate-marquee flex whitespace-nowrap mb-4 md:mb-8">
             {/* CANVI 2: text-[80px] a text-[40px] i md:text-[140px] a md:text-[70px] */}
             <span className="text-[40px] md:text-[70px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
-              • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+              • QUALITAT • CLIMATITZACIÓ • ELECTRICITAT • FONTANERIA
             </span>
             <span className="text-[40px] md:text-[70px] font-black text-[#1A1A1A]/10 uppercase tracking-tight mx-8">
-              • QUALITAT • CLIMATITZACIÓ • SEGURETAT • FONTANERIA 
+              • QUALITAT • CLIMATITZACIÓ • ELECTRICITAT • FONTANERIA
             </span>
           </div>
 
@@ -392,13 +392,21 @@ export default function ParticleHero() {
           <div className="animate-marquee-reverse flex whitespace-nowrap">
             {/* CANVI 2 (continuació): mateixa reducció de mides */}
             <span className="text-[40px] md:text-[70px] font-black uppercase tracking-tight mx-8 text-stroke">
-              ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+              GARANTIA • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
             </span>
             <span className="text-[40px] md:text-[70px] font-black uppercase tracking-tight mx-8 text-stroke">
-              ENERGIA SOLAR • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
+              GARANTIA • CONFIANÇA • INSTAL·LACIONS ELÈCTRIQUES
             </span>
           </div>
         </div>
+
+      {/* M flotant (rèplica del favicon: cercle blanc + M vermella) */}
+      <div className="hero-m-wrap" aria-hidden="true">
+        <div className="hero-m-circle">
+          <span className="hero-m">M</span>
+        </div>
+        <div className="hero-m-shadow" />
+      </div>
 
       {/* 2. CANVAS DE LES PARTÍCULES (A sobre dels textos, sota el text principal) */}
       <canvas
@@ -421,7 +429,7 @@ export default function ParticleHero() {
           className="font-body text-[16px] font-light leading-[1.65] text-[#8C8279] max-w-[400px] mb-8 hero-subtitle"
           style={{ opacity: 0, transform: 'translateY(40px)' }}
         >
-          Instal·lacions elèctriques, climatització, fontaneria i energia solar a Lleida.
+          Instal·lacions elèctriques, climatització i fontaneria a Lleida.
         </p>
         <a
           href="#serveis"
@@ -454,8 +462,69 @@ export default function ParticleHero() {
         }
         .text-stroke {
           /* Color adaptat al fons clar per fer només el contorn de la lletra */
-          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.05); 
+          -webkit-text-stroke: 2px rgba(26, 26, 26, 0.05);
           color: transparent;
+        }
+        .hero-m-wrap {
+          position: absolute;
+          top: 64%;
+          right: 24vw;
+          z-index: 15;
+          pointer-events: none;
+          user-select: none;
+          animation: hero-m-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+        }
+        .hero-m-circle {
+          width: clamp(200px, 26vw, 400px);
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background: #FBF7EE;
+          box-shadow: 0 30px 70px rgba(26, 26, 26, 0.10);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: hero-m-float 7s ease-in-out 2s infinite;
+        }
+        .hero-m {
+          display: block;
+          font-family: 'Geist', system-ui, sans-serif;
+          font-weight: 800;
+          font-size: clamp(120px, 15.5vw, 240px);
+          line-height: 1;
+          color: #C41E3A;
+          transform: translateY(3%);
+        }
+        .hero-m-shadow {
+          position: absolute;
+          left: 50%;
+          bottom: clamp(-64px, -4vw, -36px);
+          width: 68%;
+          height: clamp(16px, 2vw, 30px);
+          border-radius: 50%;
+          background: radial-gradient(ellipse at center, rgba(26, 26, 26, 0.35), transparent 65%);
+          filter: blur(6px);
+          animation: hero-m-shadow 7s ease-in-out 2s infinite;
+          transform: translateX(-50%);
+        }
+        @keyframes hero-m-in {
+          from { opacity: 0; transform: translateY(-38%); }
+          to { opacity: 1; transform: translateY(-50%); }
+        }
+        @keyframes hero-m-float {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-26px) rotate(2deg); }
+        }
+        @keyframes hero-m-shadow {
+          0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.5; }
+          50% { transform: translateX(-50%) scaleX(0.78); opacity: 0.22; }
+        }
+        @media (max-width: 767px) {
+          .hero-m-wrap { top: 37%; right: calc(50vw - 82px); }
+          .hero-m-circle { width: 164px; }
+          .hero-m { font-size: 98px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-m-wrap, .hero-m-circle, .hero-m-shadow { animation-duration: 0.01s; animation-iteration-count: 1; }
         }
       `}</style>
     </div>

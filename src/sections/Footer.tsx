@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Logo from '../components/Logo'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -43,6 +44,7 @@ export default function Footer() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-12">
           <div>
+            <Logo className="w-[88px] h-[88px] mb-5" />
             <p className="nav-link text-[#F5F3EF] mb-4">
               INSTAL·LACIONS MONTOY
             </p>
@@ -78,10 +80,10 @@ export default function Footer() {
                 info@montoy.es
               </a>
               <a
-                href="tel:+34961234567"
+                href="tel:+34612345678"
                 className="font-body text-[14px] font-light text-[#F5F3EF] opacity-60 hover:opacity-100 transition-opacity duration-300"
               >
-                96 123 45 67
+                612 34 56 78
               </a>
             </div>
           </div>
@@ -89,7 +91,7 @@ export default function Footer() {
 
         <div className="border-t border-[rgba(245,243,239,0.1)] pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40">
-            2024 Instal·lacions Montoy. Tots els drets reservats.
+            {new Date().getFullYear()} Instal·lacions Montoy. Tots els drets reservats.
           </p>
           <div className="flex gap-4">
             <span className="font-body text-[12px] font-light text-[#F5F3EF] opacity-40 hover:opacity-70 cursor-pointer transition-opacity">

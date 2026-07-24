@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Logo from '../components/Logo'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const stats = [
-  { num: '5+', label: 'Anys d\'experiència' },
+  { num: '8+', label: 'Anys d\'experiència' },
   { num: '200+', label: 'Projectes completats' },
   { num: '100%', label: 'Clients satisfets' },
 ]
@@ -48,13 +49,11 @@ export default function About() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           <div className="lg:w-[55%]">
-            <div className="about-image overflow-hidden opacity-0" style={{ aspectRatio: '3/4' }}>
-              <img
-                src="/images/about.jpg"
-                alt="Jaume Montoy, fundador d'Instal·lacions Montoy"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
+            <div
+              className="about-image flex items-center justify-center bg-[#0F0F0F] opacity-0"
+              style={{ aspectRatio: '4/5' }}
+            >
+              <Logo className="w-[70%] max-w-[380px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" />
             </div>
           </div>
 
@@ -64,7 +63,7 @@ export default function About() {
               Treballant ràpid i amb qualitat des de 2018
             </h2>
             <p className="about-text-item font-body text-[16px] md:text-[18px] font-light text-[#8C8279] leading-[1.65] mb-10 opacity-0">
-              Som una empresa d'instal·lacions amb seu a Alcarràs, especialitzada en electricitat, climatització, energia solar i fontaneria. Treballem amb particulars, empreses i comunitats de veïns, oferint solucions integrals amb garantia de qualitat.
+              Som una empresa d'instal·lacions amb seu a Alcarràs, especialitzada en electricitat, climatització i fontaneria. Treballem amb particulars, empreses i comunitats de veïns, oferint solucions integrals amb garantia de qualitat.
             </p>
             <p className="about-text-item font-body text-[16px] font-light text-[#8C8279] leading-[1.65] mb-12 opacity-0">
               Cada projecte és una oportunitat per demostrar el nostre compromís amb l'excel·lència tècnica i la satisfacció del client.

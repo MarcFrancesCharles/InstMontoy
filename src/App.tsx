@@ -4,7 +4,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navigation from './components/Navigation'
 import ParticleHero from './components/ParticleHero'
 import WhatsAppButton from './components/WhatsAppButton'
-import TrustedBy from './sections/TrustedBy'
 import Services from './sections/Services'
 import Process from './sections/Process'
 import Projects from './sections/Projects'
@@ -52,7 +51,6 @@ export default function App() {
     <div className="relative">
       <Navigation />
       <ParticleHero />
-      <TrustedBy />
       <Services />
       <Process />
       <Projects />
