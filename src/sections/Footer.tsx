@@ -74,16 +74,16 @@ export default function Footer() {
             <p className="section-label mb-4" style={{ color: '#8C8279' }}>Contacte</p>
             <div className="flex flex-col gap-2">
               <a
-                href="mailto:info@montoy.es"
+                href="mailto:instmontoy@gmail.com"
                 className="font-body text-[14px] font-light text-[#F5F3EF] opacity-60 hover:opacity-100 transition-opacity duration-300"
               >
-                info@montoy.es
+                instmontoy@gmail.com
               </a>
               <a
-                href="tel:+34612345678"
+                href="tel:+34622503072"
                 className="font-body text-[14px] font-light text-[#F5F3EF] opacity-60 hover:opacity-100 transition-opacity duration-300"
               >
-                612 34 56 78
+                +34 622 50 30 72
               </a>
             </div>
           </div>

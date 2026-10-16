@@ -38,7 +38,7 @@ export default function CallToAction() {
           Explica'ns què necessites i et prepararem un pressupost sense compromís.
         </p>
         <a
-          href="https://wa.me/34612345678?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
+          href="https://wa.me/34622503072?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
           target="_blank"
           rel="noopener noreferrer"
           className="cta-item inline-block bg-[#C41E3A] text-[#F5F3EF] px-10 py-4 text-[12px] font-normal uppercase tracking-[1.5px] hover:bg-[#D4304A] transition-colors duration-300 opacity-0"

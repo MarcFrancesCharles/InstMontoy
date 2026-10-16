@@ -173,7 +173,7 @@ function ServiceModal({ service, onClose }: ServiceModalProps) {
           {/* CTA */}
           <div className="mt-8 pt-6 border-t border-[rgba(26,26,26,0.08)]">
             <a
-              href="https://wa.me/34612345678?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
+              href="https://wa.me/34622503072?text=Hola%2C%20m%27agradaria%20sol%C2%B7licitar%20un%20pressupost"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-[#C41E3A] text-[#F5F3EF] px-8 py-[14px] text-[12px] font-normal uppercase tracking-[1.5px] hover:bg-[#A01830] transition-colors duration-300"
