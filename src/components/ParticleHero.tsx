@@ -408,7 +408,7 @@ export default function ParticleHero() {
         <div className="hero-m-shadow" />
       </div>
 
-      {/* 2. CANVAS DE LES PARTÍCULES (A sobre dels textos, sota el text principal) */}
+      {/* 2. CANVAS DE  LES PARTÍCULES (A sobre dels textos, sota el text principal) */}
       <canvas
         ref={canvasRef}
         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}
